@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Room {{ room_name }}{% endblock %}
+{% block body %}
+  <h1>Room {{ room_name }}</h1>
+  {% with messages = Messages.query.filter(Messages.room_id == room_id).all() %}
+    {% if messages %}
+      {% for message in messages %}
+        <div>{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form action="#" method="POST">
+    <input type="text" disabled value={{name}} name="name">
+    <input type="text" name="message" placeholder="Введите сообщение" style="margin-bottom: 5px"> <br>
+    <input type="submit" value="Отправить">
+  </form>
+  <div><a href="{{ url_for('rooms') }}">Вернуться в список комнат</a></div>
+{% endblock %}
