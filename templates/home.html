@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Home Page of discord-lite
+{% endblock title %}
+
+{% block body %}
+  <h1>Welcome to discord-lite</h1>
+  <form action="/register" method="GET">
+    <input type="submit" value="Зарегистрироваться" style="margin-bottom: 5px">
+  </form>
+  <form action="/login" method="GET">
+    <input type="submit" value="Войти">
+  </form>
+{% endblock %}

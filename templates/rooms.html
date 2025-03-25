@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Rooms{% endblock %}
+{% block body %}
+  {% with Rooms_ = Room.query.all() %}
+    {% if Rooms_ %}
+      {% for room in Rooms_ %}
+        {% set r_ = room | string %}
+        {%set r = r_.split(':')[0] %}
+          <div><a href="{{ url_for('room_message', room_name=r) }}">{{ r }}</a></div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+{% endblock %}
